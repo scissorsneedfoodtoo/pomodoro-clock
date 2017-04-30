@@ -20,14 +20,15 @@ body {
 
 .pomodoro {
   width: 330px;
+/*   height: 400px; */
+  margin: auto;
   display: grid;
   grid-gap: 10px;
   grid-template-columns: 160px 160px;
   grid-template-areas:
         "set-break set-timer"
         "pie pie"
-				"countdown countdown";
-  height: 500px;
+        "countdown countdown";
   align-items: center;
   justify-items: center;
 }
@@ -36,9 +37,9 @@ body {
 .set-break {
   font-weight: bold;
   margin: auto;
+  margin-bottom: 15px;
   text-align: center;
   color: rgba(0,0,0,.75);
-  font-
   grid-area: set-break;
   display: grid;
   grid-template-columns:  repeat(3);
@@ -74,6 +75,7 @@ body {
 .set-timer {
   font-weight: bold;
   margin: auto;
+  margin-bottom: 15px;
   text-align: center;
   color: rgba(0,0,0,.75);
   grid-area: set-timer;
@@ -201,21 +203,13 @@ body {
     grid-template-columns: 190px 190px;
   }
   
-  .set-timer .timer-minus {
+/*   .set-timer .timer-length {
     width: 25px;
   }
   
-  .set-timer .timer-plus {
+  .set-break .break-length {
     width: 25px;
-  }
-  
-  .set-break .break-minus {
-    width: 25px;
-  }
-  
-  .set-break .break-plus {
-    width: 25px;
-  }
+  } */
   
 }
 
