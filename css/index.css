@@ -1,0 +1,229 @@
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+/*   background-color: #444; */
+  font-family: 'Roboto', sans-serif;
+}
+
+.content {
+  flex: 1;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+}
+
+.pomodoro {
+  width: 330px;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 160px 160px;
+  grid-template-areas:
+        "set-break set-timer"
+        "pie pie"
+				"countdown countdown";
+  height: 500px;
+  align-items: center;
+  justify-items: center;
+}
+
+
+.set-break {
+  font-weight: bold;
+  margin: auto;
+  text-align: center;
+  color: rgba(0,0,0,.75);
+  font-
+  grid-area: set-break;
+  display: grid;
+  grid-template-columns:  repeat(3);
+  grid-template-rows: repeat(2);
+  align-items: center;
+  justify-items: center;
+}
+
+.set-break .title {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.set-break .break-minus {
+  grid-column: 1;
+  grid-row: 2;
+  cursor: pointer;
+  width: 20px;
+}
+
+.set-break .break-length {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.set-break .break-plus {
+  grid-column: 3;
+  grid-row: 2;
+  cursor: pointer;
+  width: 20px;
+}
+
+.set-timer {
+  font-weight: bold;
+  margin: auto;
+  text-align: center;
+  color: rgba(0,0,0,.75);
+  grid-area: set-timer;
+  display: grid;
+  grid-template-columns:  repeat(3);
+  grid-template-rows: repeat(2);
+  align-items: center;
+  justify-items: center;
+}
+
+.set-timer .title {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.set-timer .timer-minus {
+  grid-column: 1;
+  grid-row: 2;
+  cursor: pointer;
+  width: 20px;
+}
+
+.set-timer .timer-length {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.set-timer .timer-plus {
+  grid-column: 3;
+  grid-row: 2;
+  cursor: pointer;
+  width: 20px;
+}
+
+.pie {
+  margin: auto;
+  display: flex;
+  grid-area: pie;
+  justify-content: center;
+  align-items: center;
+  height: 320px;
+  width: 320px;
+  border-radius: 50%;
+}
+
+.countdown {
+  margin: auto;
+  height: 300px;
+  width: 300px;
+  border-radius: 50%;
+  background-color: rgba(255,255,255,.85);
+  grid-area: countdown;
+  color: rgba(0,0,0,.75);
+  display: grid;
+  grid-gap: 10px;
+  grid-template-rows: repeat(6, 41px);
+  justify-content: center;
+  align-items: center;
+}
+
+.countdown .title {
+  grid-row: 3;
+  justify-content: center;
+  align-items: center;
+}
+
+.clock {
+  display: flex;
+  grid-row: 4;
+  justify-content: center;
+}
+
+.degree {
+  background-image:
+    linear-gradient(90deg, transparent 50%, white 50%),
+    linear-gradient(90deg, white 50%, transparent 50%);
+}
+
+.footer {
+  margin: auto;
+  text-align: center;
+/*   font-weight: bold; */
+  line-height: 1.6rem;
+  color: rgba(0,0,0,.75);
+}
+
+.footer a:link, a:visited, a:active {
+  text-decoration: none;
+  color: rgba(0,0,0,.75);
+}
+
+@media screen and (max-width: 321px) {
+  
+  p {
+    font-size: .9em;
+  }
+  
+  .pomodoro {
+    width: 300px;
+    grid-template-columns: 145px 145px;
+  }
+  
+  .pie {
+    width: 290px;
+    height: 290px;
+  }
+  
+  .countdown {
+    width: 270px;
+    height: 270px;
+    grid-gap: 7px;
+    grid-template-rows: repeat(6, 39px);
+  }
+
+}
+
+@media screen and (min-width: 430px) {
+  
+  p {
+    font-size: 1.15em;
+  }
+  
+  .pomodoro {
+    width: 390px;
+    grid-template-columns: 190px 190px;
+  }
+  
+  .set-timer .timer-minus {
+    width: 25px;
+  }
+  
+  .set-timer .timer-plus {
+    width: 25px;
+  }
+  
+  .set-break .break-minus {
+    width: 25px;
+  }
+  
+  .set-break .break-plus {
+    width: 25px;
+  }
+  
+}
+
+/* The old syntax, deprecated and prefixed, for old browsers */
+background: -prefix-linear-gradient(left, rgba(255,255,255,0),
+  rgba(255,255,255,1)), url(http://foo.com/image.jpg);
+
+/* The new syntax needed by standard-compliant browsers (Opera 12.1,
+   IE 10, Firefox 16, Chrome 26, Safari 6.1), without prefix */  
+background: linear-gradient(to right, rgba(255,255,255,0),
+  rgba(255,255,255,1)), url(http://foo.com/image.jpg);
