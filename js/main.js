@@ -8,7 +8,7 @@ $(document).ready(function() {
   var timeInterval; // global var for now to make pausing and unpausing easier
   var baseTime; // global baseTime object
   var updateClock; // houses updateClock function as global var to allow for easy resuming
-  var beep = new Audio('https://onlineclock.net/audio/options/default.mp3'); // global var so audio file loads with the page--the file can then be played even when the tab is inactive
+  var beep = new Audio('https://res.cloudinary.com/scissorsneedfoodtoo/video/upload/v1506062828/Mp3-alarm-clock_ru6grt.mp3'); // global var so audio file loads with the page--the file can then be played even when the tab is inactive
 
   function processTime(time) {
     if (typeof time === 'object') { // processes the arg differently if it's an int like sessionLength or breakLength, or an object like baseTime
@@ -23,7 +23,7 @@ $(document).ready(function() {
     var orgBreakLength = breakLength * 60000;
     var percentSession = Math.floor((t / orgSessionLength) * 100);
     var percentBreak = Math.floor((t / orgBreakLength) * 100);
-    
+
     if (breakSwitch === 0) {
       var timeObj = {
         'total': t,
@@ -46,7 +46,7 @@ $(document).ready(function() {
   function initializeClock(time) {
     baseTime = processTime(time); // updates the global baseTime object to prevent errors with pausing and resuming
     var newTime = processTime(time);
-    
+
     updateClock = function() {
       newTime = processTime(newTime); // creates an updated time object for display
       // baseTime = newTime; // updates baseTime based on newTime object
@@ -77,14 +77,14 @@ $(document).ready(function() {
       console.log(baseTime, newTime);
       return pieCountdown(newTime);
     } // end updateClock
-    
+
     updateClock(); // run function once here to prevent a 1000 ms delay
   } // end initializeClock
 
   function controls() {
 
     $('.break-minus').click(function() {
-      
+
        if (breakLength <= 0) { // returns 0 to prevent errors
         breakLength = 0;
       } else if (pauseSwitch === 1) { // subtracts 1 minutes from break length and rounds off the clock to the minute automatically when the clock is paused
@@ -96,7 +96,7 @@ $(document).ready(function() {
       }
     }); // end break-minus
 
-    $('.break-plus').click(function() {     
+    $('.break-plus').click(function() {
       if (pauseSwitch === 1) { // adds 1 minute to break length and rounds off the clock to the minute automatically when the clock is paused
         breakLength++;
         updateSettings(breakLength, sessionLength);
@@ -144,14 +144,14 @@ $(document).ready(function() {
     $('.timer-length').html('<p>' + sessionLength + '</p>');
 
   } // end updateScreen
-  
+
   function pieCountdown(timeObj) {
     var deg;
     var percentSession = timeObj.percentSession / 100;
     var percentBreak = timeObj.percentBreak / 100;
     var totalSessionRatio = (sessionLength * 60000) / (sessionLength * 60000);
     var totalBreakRatio = (breakLength * 60000) / (breakLength * 60000);
-    
+
     if (breakSwitch === 0) { // handles animation during work session
       colorSwitcher();
       if (percentSession < (totalSessionRatio / 2)) {
@@ -174,17 +174,17 @@ $(document).ready(function() {
     // console.log(deg, percentSession, totalSessionRatio, sessionLength);
     // console.log(baseTime.total);
   } // end PieCountdown
-  
+
   function pause() {
     pauseSwitch = 1;
     clearInterval(timeInterval);
   } // end pause
-  
+
   function startClock() {
     pauseSwitch = 0;
     timeInterval = setInterval(updateClock, 1000);
   } // end startClock
-  
+
   function colorSwitcher() {
     if (breakSwitch === 0) {
       $('body').css('background-color', '#dcabab');
@@ -206,7 +206,7 @@ $(document).ready(function() {
       });
     }
   } // end colorSwitcher
-  
+
   function playSound() {
     beep.play();
   } // end playSound
