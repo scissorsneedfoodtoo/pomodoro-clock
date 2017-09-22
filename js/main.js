@@ -4,7 +4,6 @@ $(document).ready(function() {
   var breakLength = 5;
   var pauseSwitch = 1;
   var breakSwitch = 0;
-  var runOnce = 0;
   var timeInterval; // global var for now to make pausing and unpausing easier
   var baseTime; // global baseTime object
   var updateClock; // houses updateClock function as global var to allow for easy resuming
